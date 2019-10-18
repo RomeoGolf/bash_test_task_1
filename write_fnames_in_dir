@@ -1,4 +1,30 @@
 #!/bin/bash
 
 arg="$*"
+
+# Check the argument
+if [[ ! -e $arg ]]
+then echo "Dir not found!"
+    exit 1
+fi
+
+if [[ ! -d $arg ]]
+then echo "Argument is not a dir!"
+    exit 1
+fi
+
+if [[ ! -r $arg ]]
+then echo "Dir can't be readed!"
+    exit 1
+fi
+
+if [[ ! -w $arg ]]
+then echo "Dir can't be writed!"
+    exit 1
+fi
+# --------
+
+
+
 echo $arg
+
