@@ -2,6 +2,11 @@
 
 arg="$*"
 
+function processDir()
+{
+    echo $*
+}
+
 # Check the argument
 if [[ ! -e $arg ]]
 then echo "Dir not found!"
@@ -24,6 +29,7 @@ then echo "Dir can't be writed!"
 fi
 # --------
 
-echo $arg
+processDir "$arg"
 
 exit 0
+
