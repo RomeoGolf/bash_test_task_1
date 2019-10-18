@@ -4,7 +4,18 @@ arg="$*"
 
 function processDir()
 {
+    local nowDir=$PWD
     echo $*
+    cd "$*"
+    for f in *
+    do
+        if [[ -d $f ]]
+        then
+            #echo $f is dir
+            processDir "$f"
+        fi
+    done
+    cd $nowDir
 }
 
 # Check the argument
