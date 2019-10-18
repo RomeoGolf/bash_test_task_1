@@ -24,7 +24,6 @@ then echo "Dir can't be writed!"
 fi
 # --------
 
-
-
 echo $arg
 
+exit 0
