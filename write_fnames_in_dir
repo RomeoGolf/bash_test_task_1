@@ -5,7 +5,13 @@ arg="$*"
 function processDir()
 {
     local nowDir=$PWD
-    echo $*
+    # now timestamp
+    #local timestamp=`eval date +%s`
+    # timestamp for dir modify
+    local timestamp=`eval stat -c%Y $*`
+    fname="$*_$timestamp"
+    echo $fname
+    #echo $*
     cd "$*"
     for f in *
     do
