@@ -4,11 +4,12 @@ arg="$*"
 
 function processDir()
 {
-    local nowDir=$PWD
+    local nowDir="$PWD"
+    local farg="$*"
     # now timestamp
     #local timestamp=`eval date +%s`
     # timestamp for dir modify
-    local timestamp=`eval stat -c%Y $*`
+    local timestamp=`eval stat -c%Y \"$farg\"`
     fname="$*_$timestamp"
 
     cd "$*"
@@ -31,7 +32,7 @@ function processDir()
             processDir "$f"
         fi
     done
-    cd $nowDir
+    cd "$nowDir"
 }
 
 # Check the argument
