@@ -11,11 +11,21 @@ function processDir()
     local timestamp=`eval stat -c%Y $*`
     fname="$*_$timestamp"
     echo $fname
-    #echo $*
+
     cd "$*"
+    touch "$fname"
+
     for f in *
     do
-        if [[ -d $f ]]
+        if [[ -f "$f" && $f != "$fname" ]]
+        then
+            echo "$f" >> "./$fname"
+        fi
+    done
+
+    for f in *
+    do
+        if [[ -d "$f" ]]
         then
             #echo $f is dir
             processDir "$f"
