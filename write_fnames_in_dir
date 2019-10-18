@@ -10,7 +10,6 @@ function processDir()
     # timestamp for dir modify
     local timestamp=`eval stat -c%Y $*`
     fname="$*_$timestamp"
-    echo $fname
 
     cd "$*"
     touch "$fname"
@@ -27,7 +26,6 @@ function processDir()
     do
         if [[ -d "$f" ]]
         then
-            #echo $f is dir
             processDir "$f"
         fi
     done
