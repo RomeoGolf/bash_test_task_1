@@ -46,7 +46,11 @@ then echo "Dir can't be writed!"
 fi
 # --------
 
-processDir "$arg"
+base=`basename $arg`
+
+cd "$arg"
+cd ..
+processDir "$base"
 
 exit 0
 
